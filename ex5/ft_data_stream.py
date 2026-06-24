@@ -4,7 +4,8 @@ import random
 from typing import Generator, Tuple, List
 
 
-def gen_event(players: list[str], actions: list[str]) -> Generator[Tuple[str, str], None, None]:
+def gen_event(players: list[str], actions: list[str])\
+        -> Generator[Tuple[str, str], None, None]:
     while True:
         yield (random.choice(players), random.choice(actions))
 
