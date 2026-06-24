@@ -40,14 +40,14 @@ if __name__ == "__main__":
 
         for key in inventory:
             print(f"Item {key} represents "
-                f"{round(inventory[key]/inventory_sum, 1)}%")
+                f"{round(100*inventory[key]/inventory_sum, 1)}%")
 
         most_abundan = list(inventory)[0]
         least_abundan = list(inventory)[0]
         for key in inventory:
             if inventory[key] > inventory[most_abundan]:
                 most_abundan = key
-            else:
+            elif inventory[key] < inventory[least_abundan]:
                 least_abundan = key
         print(f"Item most abundan: {most_abundan} "
             f"with quantity {inventory[most_abundan]}")
