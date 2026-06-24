@@ -26,32 +26,35 @@ def parse_inventory() -> dict[str, int]:
 
 
 if __name__ == "__main__":
-    print("=== Inventory System Analysis ===\n")
+    print("=== Inventory System Analysis ===")
 
-    inventory: dict[str, int] = parse_inventory()
+    if sys.argv[1:]:   
+        inventory: dict[str, int] = parse_inventory()
 
-    print("Got inventory:", inventory)
-    print("Item list:", list(inventory.keys()))
+        print("Got inventory:", inventory)
+        print("Item list:", list(inventory.keys()))
 
-    inventory_sum = sum(inventory.values())
-    print(f"""Total quantity of the {len(inventory.keys())}
-          items: {inventory_sum}""")
+        inventory_sum = sum(inventory.values())
+        print(f"Total quantity of the {len(inventory.keys())} "
+             f"items: {inventory_sum}")
 
-    for key in inventory:
-        print(f"""Item {key} represents
-              {round(inventory[key]/inventory_sum, 1)}%""")
+        for key in inventory:
+            print(f"Item {key} represents "
+                f"{round(inventory[key]/inventory_sum, 1)}%")
 
-    most_abundan = list(inventory)[0]
-    least_abundan = list(inventory)[0]
-    for key in inventory:
-        if inventory[key] > inventory[most_abundan]:
-            most_abundan = key
-        else:
-            least_abundan = key
-    print(f"""Item most abundan: {most_abundan}
-          with quantity {inventory[most_abundan]}""")
-    print(f"""Item least abundan: {least_abundan}
-          with quantity {inventory[least_abundan]}""")
+        most_abundan = list(inventory)[0]
+        least_abundan = list(inventory)[0]
+        for key in inventory:
+            if inventory[key] > inventory[most_abundan]:
+                most_abundan = key
+            else:
+                least_abundan = key
+        print(f"Item most abundan: {most_abundan} "
+            f"with quantity {inventory[most_abundan]}")
+        print(f"Item least abundan: {least_abundan} "
+            f"with quantity {inventory[least_abundan]}")
 
-    inventory["diana"] = 1
-    print("Updated inventory:", inventory)
+        inventory["diana"] = 1
+        print("Updated inventory:", inventory)
+    else:
+        print("no argument provided")
