@@ -14,7 +14,7 @@ def command_quest() -> None:
         while i < len(sys.argv):
             print(f"Argument {i}: {sys.argv[i]}")
             i += 1
-    print("Total arguments:", len(sys.argv))
+    print(f"Total arguments: {len(sys.argv)} \n")
 
 
 if __name__ == "__main__":
