@@ -28,7 +28,7 @@ def parse_inventory() -> dict[str, int]:
 if __name__ == "__main__":
     print("=== Inventory System Analysis ===")
 
-    if sys.argv[1:]:   
+    if sys.argv[1:]:
         inventory: dict[str, int] = parse_inventory()
 
         print("Got inventory:", inventory)
@@ -36,11 +36,11 @@ if __name__ == "__main__":
 
         inventory_sum = sum(inventory.values())
         print(f"Total quantity of the {len(inventory.keys())} "
-             f"items: {inventory_sum}")
+              f"items: {inventory_sum}")
 
         for key in inventory:
             print(f"Item {key} represents "
-                f"{round(100*inventory[key]/inventory_sum, 1)}%")
+                  f"{round(100*inventory[key]/inventory_sum, 1)}%")
 
         most_abundan = list(inventory)[0]
         least_abundan = list(inventory)[0]
@@ -50,9 +50,9 @@ if __name__ == "__main__":
             elif inventory[key] < inventory[least_abundan]:
                 least_abundan = key
         print(f"Item most abundan: {most_abundan} "
-            f"with quantity {inventory[most_abundan]}")
+              f"with quantity {inventory[most_abundan]}")
         print(f"Item least abundan: {least_abundan} "
-            f"with quantity {inventory[least_abundan]}")
+              f"with quantity {inventory[least_abundan]}")
 
         inventory["diana"] = 1
         print("Updated inventory:", inventory)
